@@ -1,0 +1,1014 @@
+* {
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -ms-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -o-box-sizing: border-box;
+   margin: 0;
+}
+
+html {
+   font-size: 10px;
+}
+
+body {
+   font-size: 1.6rem;
+}
+
+img {
+   max-width: 100%;
+}
+
+.clerafix:after {
+   display: table;
+   clear: both;
+   content: '';
+}
+
+.container {
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 2rem;
+}
+
+/* Header */
+header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 9999;
+   background-color: rgb(245, 245, 240);
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 2rem;
+}
+
+header .logo img {
+   height: 10rem;
+   width: auto;
+}
+
+header .header .meni ul {
+   display: flex;
+   list-style: none;
+   gap: 40px;
+   margin: 0;
+   padding: 0;
+}
+
+.meni ul li {
+   position: relative;
+   margin-left: 25px;
+}
+
+.meni ul li a {
+   text-decoration: none;
+   color: #333;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   letter-spacing: 1.5px;
+}
+
+.meni ul li a:hover {
+   font-weight: 500;
+}
+
+.has-submenu {
+   padding-bottom: 1rem;
+
+}
+
+.has-submenu>a::after {
+   content: " ▼";
+   /* Možeš koristiti i " ▾" ili " \25BC" */
+   font-size: 0.8em;
+   vertical-align: middle;
+   display: inline-block;
+   margin-left: 5px;
+}
+
+/* Opciono: Rotiraj strelicu kada se pređe mišem (ako se meni otvara na hover) */
+.has-submenu:hover>a::after {
+   transform: rotate(180deg);
+   transition: 0.3s;
+}
+
+.meni ul li .dropdown {
+   display: none;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   min-width: 18rem;
+   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+   flex-direction: column;
+   padding: 10px;
+   z-index: 1000;
+   gap: 0;
+}
+
+
+.meni ul li ul {
+   display: none;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   background-color: #fff;
+   min-width: 180px;
+   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+   flex-direction: column;
+   z-index: 1000;
+}
+
+.meni ul li:hover>ul {
+   display: flex;
+}
+
+.meni ul li ul li {
+   margin: 0;
+}
+
+.meni ul li ul li a {
+   padding: 10px;
+   display: block;
+   font-size: 13px;
+}
+
+.meni ul li ul li a:hover {
+   background-color: #f9f9f9;
+   color: #d4af37;
+}
+
+/* Sakrivanje hamburgera na desktopu */
+.hamburger {
+   display: none;
+   cursor: pointer;
+   flex-direction: column;
+   gap: 5px;
+   z-index: 10001;
+}
+
+.hamburger span {
+   display: block;
+   width: 25px;
+   height: 3px;
+   background-color: #333;
+   transition: 0.3s;
+}
+
+@media (max-width: 600px) {
+   header .logo img {
+      height: 6rem;
+      /* Smanji logo na mobilnom */
+   }
+
+   header .header {
+      padding: 1rem 2rem;
+      /* Smanji padding headera */
+      width: 100%;
+   }
+
+   /* Osiguravamo da se hamburger vidi */
+   .hamburger {
+      display: flex !important;
+      /* Forsiramo prikaz */
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      position: relative;
+      z-index: 10005;
+      /* Iznad svega */
+   }
+
+   .hamburger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #333;
+      /* Boja crtica */
+   }
+
+   /* Sakrivamo običnu listu */
+   .meni nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      /* Sklonjeno desno */
+      width: 80%;
+      height: 100vh;
+      background-color: rgb(245, 245, 240);
+      transition: 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   /* Kada je aktivno, ulazi sa desne strane */
+   .meni.active nav {
+      right: 0;
+   }
+
+   .meni nav ul {
+      flex-direction: column;
+      gap: 30px;
+   }
+}
+
+/* Animacija hamburgera u X */
+.hamburger.active span:nth-child(1) {
+   transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+   opacity: 0;
+   /* Srednja crtica nestaje */
+}
+
+.hamburger.active span:nth-child(3) {
+   transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Dodajemo prelaz da bi se X lepo okretao, a ne samo "skočio" */
+.hamburger span {
+   transition: all 0.3s ease-in-out;
+}
+
+/* --- TABLET VERZIJA (601px - 1024px) --- */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+   /* 1. Smanjivanje headera da sve stane u red */
+   header .header {
+      height: 8rem !important;
+      padding: 0 2rem !important;
+      width: 100% !important;
+      display: flex !important;
+      justify-content: space-between !important;
+   }
+
+   header .logo img {
+      height: 6rem !important;
+   }
+
+   /* 2. Meni - smanjeni razmaci */
+   header .header .meni ul {
+      gap: 12px !important;
+      display: flex !important;
+   }
+
+   .meni ul li {
+      margin-left: 0 !important;
+      position: relative;
+   }
+
+   .meni ul li a {
+      font-size: 11px !important;
+      letter-spacing: 1px !important;
+   }
+
+   /* 3. Strelica (::after) - Vidljiva i funkcionalna */
+   .has-submenu>a::after {
+      content: " ▼" !important;
+      display: inline-block !important;
+      transition: transform 0.3s ease;
+      transform: rotate(0deg);
+   }
+
+   /* Rotacija strelice kada je podmeni otvoren */
+   .meni ul li.active-submenu>a::after {
+      transform: rotate(180deg);
+   }
+
+   /* 4. Podmeni (Dropdown) - Sakriven dok se ne doda klasa preko JS */
+   .meni ul li .dropdown {
+      display: none !important;
+      /* Forsiramo sakrivanje */
+      position: absolute !important;
+      top: 100% !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      background-color: #fff !important;
+      min-width: 180px !important;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1) !important;
+      border-top: 2px solid #d4af37 !important;
+      z-index: 99999 !important;
+      flex-direction: column !important;
+      padding: 10px 0 !important;
+   }
+
+   /* Prikazivanje podmenija kada JS doda klasu .active-submenu */
+   .meni ul li.active-submenu .dropdown {
+      display: flex !important;
+   }
+
+   .meni ul li .dropdown li a {
+      font-size: 12px !important;
+      padding: 12px 15px !important;
+      text-align: center !important;
+      text-transform: capitalize !important;
+      display: block !important;
+   }
+}
+
+/* Header end */
+
+/* Hero */
+.hero {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   background-color: black;
+   overflow: hidden;
+}
+
+.hero .hero-img {
+   margin-top: 10.6rem;
+   height: calc(100vh - 10.6rem);
+   width: 100vw;
+   object-fit: cover;
+   object-position: top;
+   display: block;
+   animation: pulsiranje-slike 15s infinite alternate ease-in-out;
+
+}
+
+.hero-img::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.1);
+   /* Veoma blagi tamni sloj preko slike */
+}
+
+@keyframes pulsiranje-slike {
+   0% {
+      transform: scale(1);
+   }
+
+   100% {
+      transform: scale(1.1);
+      /* Blago zumiranje */
+   }
+}
+
+.hero-text {
+   position: absolute;
+   top: 65%;
+   /* Spušteno ka dnu slike */
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 90%;
+   text-align: center;
+   z-index: 10;
+}
+
+.hero-title {
+   display: flex;
+   justify-content: center;
+   gap: 25px;
+   margin-bottom: 15px;
+   font-family: "Cormorant Garamond", serif;
+   font-weight: 300;
+}
+
+/* Stil za naslov koji se spaja u sredini */
+.left,
+.right {
+   font-size: clamp(2rem, 5vw, 4rem);
+   color: white;
+   letter-spacing: 5px;
+   margin: 0;
+}
+
+.left {
+   animation: spajanje-levo 2s ease-out forwards;
+}
+
+.right {
+   animation: spajanje-desno 2s ease-out forwards;
+}
+
+@keyframes spajanje-levo {
+   0% {
+      transform: translateX(-150%);
+      opacity: 0;
+   }
+
+   100% {
+      transform: translateX(0);
+      opacity: 1;
+   }
+}
+
+@keyframes spajanje-desno {
+   0% {
+      transform: translateX(150%);
+      opacity: 0;
+   }
+
+   100% {
+      transform: translateX(0);
+      opacity: 1;
+   }
+}
+
+.quote {
+   opacity: 0;
+   font-family: 'Playfair Display', serif;
+   font-weight: 400;
+   font-size: 3rem;
+   color: rgba(255, 255, 255, 0.8);
+   animation: iz-magle 2.5s ease forwards 2s;
+   /* Kreće nakon spajanja naslova */
+   margin-bottom: 25px;
+}
+
+.btn-hero {
+   opacity: 0;
+   background: transparent;
+   font-family: 'Montserrat', sans-serif;
+   color: white;
+   border: 1px solid white;
+   padding: 12px 35px;
+   cursor: pointer;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   animation: iz-magle 2.5s ease forwards 3s;
+   /* Poslednji element */
+   transition: 0.4s;
+}
+
+.btn-hero:hover {
+   background: white;
+   color: black;
+   box-shadow: 0 0 15px white;
+}
+
+@keyframes iz-magle {
+   from {
+      opacity: 0;
+      filter: blur(10px);
+   }
+
+   to {
+      opacity: 1;
+      filter: blur(0);
+   }
+}
+
+/* Hero usluge */
+.hero-title {
+   font-size: 3rem;
+   /* Baš krupno i elegantno */
+   font-family: "Cormorant Garamond", serif;
+   /* Obavezno koristi serifni font za ovaj deo */
+   margin-top: 60px;
+   /* Razmak od gornje sekcije */
+   margin-bottom: 30px;
+}
+
+.usluge-intro {
+   text-align: center;
+   max-width: 600px;
+   margin: 0 auto 50px;
+   font-family: 'Playfair Display', serif;
+   /* Ili neki drugi elegantan font koji koristiš */
+   font-size: 1.6rem;
+   line-height: 1.8;
+   color: #4a4a4a;
+   /* Tamno siva, skoro crna */
+   letter-spacing: 2px;
+   /* Blagi razmak između slova za elegantniji izgled */
+   font-style: italic;
+   position: relative;
+}
+
+.potpis {
+   display: block;
+   /* Prebacuje potpis u novi red */
+   margin-top: 20px;
+   font-family: 'Playfair Display', serif;
+   /* Ili neki sličan font poput 'Great Vibes' */
+   font-size: 1.5rem;
+   color: #4a4a4a;
+   letter-spacing: 1px;
+}
+
+/* Opciono: Dodaj diskretnu liniju ispod paragrafa za dodatnu eleganciju */
+.usluge-intro::after {
+   content: "";
+   display: block;
+   width: 50px;
+   height: 1px;
+   background: #d4af37;
+   /* Zlatna boja ako se uklapa u brend */
+   margin: 20px auto 0;
+}
+
+.usluge-row {
+   display: flex;
+   gap: 5rem;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+.hero-usluge-item {
+   flex: 1;
+   max-width: 500px;
+   /* Ograniči širinu da ne budu prevelike */
+}
+
+.hero-usluge-item img {
+   width: 100%;
+   height: 400px;
+   object-fit: cover;
+   display: block;
+   border-radius: 1rem;
+   filter: grayscale(40%);
+   transition: filter 0.6s ease;
+}
+
+
+.hero-usluge-item:hover img {
+   filter: grayscale(0%);
+   /* Puna boja na hover */
+}
+
+.hero-usluge-item figcaption {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   text-align: center;
+   font-family: 'Playfair Display', serif;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   margin-top: 20px;
+   font-size: 1.9rem;
+   color: #333;
+}
+
+.tehnika-naziv {
+   font-size: 1.4rem;
+   text-transform: lowercase;
+   font-style: italic;
+   opacity: 0.8;
+
+}
+
+.btn-tajne {
+   display: block;
+   margin: 40px auto;
+   padding: 15px 40px;
+   background-color: transparent;
+   /* Providna pozadina za otmen izgled */
+   color: #2c2c2c;
+   /* Tamna boja teksta */
+   border: 1px solid #d4af37;
+   /* Tanka zlatna ivica */
+   font-family: 'Playfair Display', serif;
+   /* Elegantan font */
+   font-size: 1rem;
+   text-transform: uppercase;
+   /* Sva velika slova za autoritet */
+   letter-spacing: 3px;
+   /* Veći razmak između slova - ključ elegancije */
+   cursor: pointer;
+   transition: all 0.5s ease;
+   /* Glatka animacija */
+   position: relative;
+   outline: none;
+}
+
+/* Efekat kada se pređe mišem (Hover) */
+.btn-tajne:hover {
+   background-color: #d4af37;
+   /* Dugme se "puni" zlatnom bojom */
+   color: white;
+   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+   /* Blagi zlatni sjaj */
+   transform: translateY(-3px);
+   /* Lagano se podigne */
+}
+
+/* Opciono: Dodavanje male strelice koja se pojavljuje na hover */
+.btn-tajne::after {
+   content: ' →';
+   opacity: 0;
+   transition: 0.5s;
+}
+
+.btn-tajne:hover::after {
+   opacity: 1;
+   padding-left: 10px;
+}
+
+/* --- SEKCIJA O MENI --- */
+.o-meni {
+   padding: 3rem 0;
+   background-color: #f5e1e1;
+}
+
+/* Container koristi Flexbox da bi slika i tekst bili jedno pored drugog */
+.o-meni .o-meni-container {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   gap: 60px;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+/* Naslov "O meni" koji stoji iznad svega */
+.o-meni-title {
+   width: 100%;
+   font-family: "Cormorant Garamond", serif;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: 6px;
+   font-weight: 300;
+   margin-bottom: 3rem;
+}
+
+/* Podešavanje slike */
+.o-meni-img {
+   flex: 1;
+   min-width: 300px;
+   max-width: 450px;
+}
+
+.o-meni-img img {
+   width: 100%;
+   height: auto;
+   border-radius: 4px;
+   mix-blend-mode: multiply;
+}
+
+.o-meni-img figcaption {
+   font-size: 1.4rem;
+   text-transform: capitalize;
+   font-style: italic;
+   opacity: 0.8;
+   text-align: center;
+   font-family: 'Playfair Display', serif;
+
+   color: #333;
+}
+
+/* Podešavanje tekstualnog dela */
+.o-meni-sadrzaj {
+   flex: 1;
+   min-width: 300px;
+}
+
+.o-meni-sadrzaj h2:first-child {
+   font-size: 12px;
+   letter-spacing: 3px;
+   color: #888;
+   margin-bottom: 5px;
+}
+
+.o-meni-sadrzaj h2:nth-child(2) {
+   font-size: 38px;
+   font-weight: 300;
+   margin-bottom: 25px;
+}
+
+.o-meni-sadrzaj p {
+   line-height: 1.7;
+   margin-bottom: 20px;
+   color: #444;
+}
+
+.o-meni-sadrzaj span {
+   font-weight: bold;
+   display: block;
+   margin: 30px 0 15px;
+   text-transform: uppercase;
+   font-size: 14px;
+}
+
+.o-meni-sadrzaj ul {
+   list-style: none;
+   padding: 0;
+}
+
+.o-meni-sadrzaj li {
+   margin-bottom: 12px;
+   padding-left: 20px;
+   position: relative;
+}
+
+.o-meni-sadrzaj h3 {
+   text-align: end;
+   color: #444;
+}
+
+/* Zlatna tačkica za listu */
+.o-meni-sadrzaj li::before {
+   content: "•";
+   position: absolute;
+   left: 0;
+   color: #d4af37;
+   font-size: 20px;
+}
+
+.zakljucak {
+   margin-top: 30px;
+   font-style: italic;
+   color: #777;
+}
+/* HERO SLIKA */
+@media (max-width: 600px) {
+   header {
+         background-color: rgba(245, 245, 240, 0.8) !important;
+         backdrop-filter: blur(5px);
+      }
+   .hero {
+      height: 100vh !important;
+      width: 100vw !important;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0 !important;
+   }
+
+   .hero .hero-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      margin-top: 0 !important;
+      z-index: 1;
+   }
+
+   .hero .hero-img img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center 10% !important;
+   }
+
+   .hero-text {
+      position: absolute;
+      z-index: 10;
+      bottom: 10% !important;
+      top: auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 90% !important;
+   }
+
+   .hero-title {
+      flex-direction: column !important;
+      gap: 5px !important;
+   }
+
+   .left,
+   .right {
+      font-size: 3rem !important;
+      line-height: 1.1;
+      opacity: 1 !important;
+   }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+   .hero {
+      height: 100vh !important;
+      background-color: transparent;
+      display: flex;
+      align-items: stretch;
+   }
+
+   .hero .hero-img {
+      margin-top: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+   }
+
+   .hero .hero-img img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center 20%;
+   }
+}
+/* HERO SLIKA END */
+/* HERO USLUGE */
+@media (max-width: 600px) {
+   .hero-usluge {
+      padding: 60px 0;
+   }
+
+   .hero-usluge .hero-title {
+      font-size: 2.6rem !important;
+      text-align: center;
+      margin-top: 20px;
+   }
+
+   .usluge-intro {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 10px !important;
+      font-size: 1.5rem !important;
+      line-height: 1.7;
+      text-align: center;
+   }
+
+   .potpis {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      display: block;
+      text-align: center;
+   }
+
+   .usluge-row {
+      flex-direction: column !important;
+      align-items: center;
+      gap: 30px;
+      margin-top: 40px;
+   }
+
+   .hero-usluge-item {
+      width: 100%;
+      max-width: 300px;
+   }
+
+   .hero-usluge-item img {
+      height: 300px !important;
+      border-radius: 8px;
+   }
+
+   .btn-tajne {
+      width: 90%;
+      margin: 40px auto;
+   }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+   .usluge-row {
+      gap: 20px !important;
+      padding: 0 20px;
+   }
+   .hero-usluge-item img {
+      height: 320px !important;
+   }
+   .usluge-intro {
+      max-width: 90% !important;
+   }
+}
+/* HERO USLUGE END */
+/* HERO O MENI */
+@media (max-width: 600px) {
+
+   .o-meni-img,
+   .o-meni-sadrzaj {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+   }
+
+   .o-meni-img figure {
+      width: 250px !important;
+      margin: 0 auto !important;
+   }
+
+   .o-meni-sadrzaj h2,
+   .o-meni-sadrzaj p,
+   .o-meni-sadrzaj span,
+   .o-meni-sadrzaj h3 {
+      width: 100% !important;
+      text-align: center !important;
+   }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+
+   .o-meni .o-meni-container {
+      display: block !important;
+      padding: 0 4rem;
+   }
+
+   .o-meni-img {
+      float: left;
+      width: 35%;
+      margin-right: 4rem;
+      margin-bottom: 2rem;
+     
+   }
+
+   .o-meni-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+   }
+   .o-meni-sadrzaj {
+      display: block !important;
+      text-align: left;
+
+   }
+   .o-meni-sadrzaj h2,
+   .o-meni-sadrzaj p,
+   .o-meni-sadrzaj ul {
+      margin-bottom: 1.5rem;
+   }
+
+   .o-meni-container::after {
+      content: "";
+      display: table;
+      clear: both;
+   }
+}
+/* HERO O MENI END */
+
+/* Hero end */
+/* FOOTER */
+footer {
+   background-color: #f9f7f2;;
+   /* Veoma svetla, skoro bela pozadina */
+   padding: 80px 0 30px;
+   border-top: 1px solid #e8e4db;
+   color: #333;
+}
+
+.footer-container {
+   display: flex;
+   justify-content: space-between;
+   gap: 40px;
+   flex-wrap: wrap;
+   /* Da bi na mobilnom išlo jedno ispod drugog */
+}
+
+.footer-box {
+   flex: 1;
+   min-width: 200px;
+}
+
+.footer-box h4 {
+   font-family: 'Montserrat', sans-serif;
+   font-size: 13px;
+   letter-spacing: 3px;
+   text-transform: uppercase;
+   margin-bottom: 25px;
+   color: #1a1a1a;
+}
+
+.footer-box p,
+.footer-box a {
+   font-family: 'Playfair Display', serif;
+   font-size: 1.4rem;
+   line-height: 1.8;
+   color: #666;
+   text-decoration: none;
+   display: block;
+   margin-bottom: 10px;
+}
+
+.footer-box a:hover {
+   color: #d4af37;
+   /* Tvoja zlatna boja na hover */
+}
+
+.footer-bottom {
+   margin-top: 60px;
+   padding-top: 20px;
+   border-top: 1px solid #eee;
+   text-align: center;
+}
+
+.footer-bottom p {
+   font-size: 1.1rem;
+   letter-spacing: 1px;
+   color: #aaa;
+   text-transform: uppercase;
+}
+/* Tablet i Mobilni */
+@media (max-width: 1024px) {
+   .footer-container {
+      text-align: center;
+      flex-direction: column;
+      /* Sve ide jedno ispod drugog */
+      align-items: center;
+      gap: 50px;
+   }
+
+   .footer-box {
+      width: 100%;
+   }
+}

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/normalize.css" />
+    <link rel="stylesheet" href="./CSS/fonts.css" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/usluge.css" />
+
+    <title>Usluge</title>
+  </head>
+  <body>
+    <!-- Header start -->
+    <header>
+      <div class="container header">
+        <!-- logo -->
+        <div class="logo">
+          <a href="#">
+            <img src="./image/Logo.png" alt="Jane Beauty Bar Logo" />
+          </a>
+        </div>
+        <div class="meni">
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="index.html">POČETNA</a></li>
+              <li class="has-submenu">
+                <a href="#">USLUGE</a>
+
+                <ul class="dropdown">
+                  <li><a href="#">Svilene Trepavice</a></li>
+                  <li><a href="#">Lash & Brow Lift</a></li>
+                  <li><a href="#">Korejski Lift</a></li>
+                  <li><a href="#">Depilacija</a></li>
+                </ul>
+              </li>
+              <li><a href="#">GALERIJA</a></li>
+              <li><a href="#">EDUKACIJE</a></li>
+              <li><a href="#">KONTAKT</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- Header end -->
+    <!-- Main start -->
+    <main class="usluge-stranica">
+      <div class="container">
+        <h1 class="glavni-naslov-usluge">Naša Ponuda</h1>
+
+        <section class="usluga-sekcija" id="trepavice">
+          <div class="usluga-kontejner">
+            <div class="okrugla-slika">
+              <img
+                src="./image/usluge/usluga-1.jpg"
+                alt="Svilene trepavice"
+              />
+            </div>
+
+            <div class="usluga-info">
+              <span class="kategorija-oznaka">ESTETIKA POGLEDA</span>
+              <h2>Svilene Trepavice</h2>
+
+              <!-- PRVI DEO: NOV SET -->
+              <div class="cene-podgrupa">
+                <h4 class="mini-naslov">SVILENE NOV SET</h4>
+                <div class="cene-grid">
+                  <div class="cena-stavka">
+                    <span>Tehnika 1:1</span><strong>3000 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>Volumen</span><strong>4000 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>Mix set</span><strong>4000 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>Wispy lash</span><strong>4500 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>Janeè lash</span><strong>4500 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>L volumen</span><strong>5000 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>Half set</span><strong>4000 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>Boje</span><strong>+300 din</strong>
+                  </div>
+                  <div class="cena-stavka">
+                    <span>Skidanje trepavica</span><strong>800 din</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- DRUGI DEO: KOREKCIJE (SAD SA TABELOM KAO NA SLICI) -->
+              <div class="cene-podgrupa">
+                <h4 class="mini-naslov">KOREKCIJE</h4>
+                <table class="tabela-korekcije">
+                  <thead>
+                    <tr>
+                      <th>Tehnika</th>
+                      <th>2 Nedelje</th>
+                      <th>3 Nedelje</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Tehnika 1:1</td>
+                      <td>2200</td>
+                      <td>2500</td>
+                    </tr>
+                    <tr>
+                      <td>Volumen</td>
+                      <td>2500</td>
+                      <td>2800</td>
+                    </tr>
+                    <tr>
+                      <td>Mix set</td>
+                      <td>2500</td>
+                      <td>2800</td>
+                    </tr>
+                    <tr>
+                      <td>Wispy lash</td>
+                      <td>2800</td>
+                      <td>3300</td>
+                    </tr>
+                    <tr>
+                      <td>Janeè lash</td>
+                      <td>2900</td>
+                      <td>3400</td>
+                    </tr>
+                    <tr>
+                      <td>L volumen</td>
+                      <td>3300</td>
+                      <td>3600</td>
+                    </tr>
+                    <tr>
+                      <td>Half set</td>
+                      <td>3000</td>
+                      <td>3300</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- TREĆI DEO: INFO NAPOMENA -->
+              <div class="detaljno-objasnjenje">
+                <p class="vazno-pravilo">
+                  <strong>Korekcije važe do 3 nedelje</strong>
+                </p>
+                <p class="info-sitno">
+                  U volumen spadaju tehnike 2D, 3D, 4D, 5D...
+                </p>
+                <p class="info-sitno">
+                  U ponudi su i braon trepavice, kao i akcenti u bojama.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. SEKCIJA: LASH & BROW LIFT (OBRNUT RASPORED) -->
+
+        <section class="usluga-sekcija obrni" id="lash">
+          <div class="usluga-kontejner">
+            <div class="okrugla-slika">
+              <img src="./image/usluge/usluga-2.jpg" alt="Lash & Brow Lift" />
+            </div>
+            <div class="usluga-info">
+              <span class="kategorija-oznaka">PRIRODNA DEFINICIJA</span>
+              <h2>Lash & Brow Lift</h2>
+              <p>
+                Idealno rešenje za one koji žele naglašen, ali potpuno prirodan
+                izgled. Podizanje, bojenje i nega prirodnih dlaka.
+              </p>
+              <div class="cene-grid">
+                <div class="cena-stavka">
+                  <span>Lash lift</span><strong>2300 din</strong>
+                </div>
+                <div class="cena-stavka">
+                  <span>Brow lift 1 (Fluffy)</span><strong>2200 din</strong>
+                </div>
+                <div class="cena-stavka">
+                  <span>Brow lift 2 (Arhitektura)</span
+                  ><strong>2500 din</strong>
+                </div>
+                <div class="detaljno-objasnjenje">
+                  <p>
+                    <strong>Brow lift 1</strong> – pruža obrvama moderan,
+                    "vazdušast" i začešljan izgled.
+                  </p>
+                  <p>
+                    <strong>Brow lift 2</strong> – ukoliko želite dodatno
+                    oblikovanje i potpuno definisan izgled (Brow lift sa
+                    arhitekturom obrva).
+                  </p>
+                  <p class="gratis-info">
+                    * Čupanje i farbanje obrva ulaze u cenu svakog Brow lifta.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. SEKCIJA: KOREJSKI LASH LIFT -->
+        <section class="usluga-sekcija" id="korejski-lash">
+          <div class="usluga-kontejner">
+            <div class="okrugla-slika">
+              <img src="./image/usluge/usluga-3.jpg" alt="Korejski lash lift" />
+            </div>
+            <div class="usluga-info">
+              <span class="kategorija-oznaka">EKSKLUZIVNI TREND</span>
+              <h2>Korejski Lash Lift</h2>
+              <p>
+                Najmodernija tehnika za postizanje "glossy" efekta i maksimalne
+                hidratacije, uz precizno definisane trepavice visokog sjaja.
+              </p>
+              <div class="cene-grid">
+                <div class="cena-stavka">
+                  <span>Kompletan tretman</span><strong>2500 din</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. SEKCIJA: DEPILACIJA (OBRNUT RASPORED) -->
+        <section class="usluga-sekcija obrni" id="depilacija">
+          <div class="usluga-kontejner">
+            <div class="okrugla-slika">
+              <img src="./image/usluge/usluga-4jpg.jpg" alt="Depilacija" />
+            </div>
+            <div class="usluga-info">
+              <span class="kategorija-oznaka">MEDICINSKA PRECIZNOST</span>
+              <h2>Depilacija</h2>
+              <p>
+                Profesionalni tretmani hladnim voskom ili šećernom pastom,
+                fokusirani na higijenu i maksimalnu brigu o vašoj koži.
+              </p>
+              <div class="cene-grid">
+                <div class="cena-stavka">
+                  <span>Noge (Vosak/Pasta)</span
+                  ><strong>1200 / 1500 din</strong>
+                </div>
+                <div class="cena-stavka">
+                  <span>Ruke (Vosak/Pasta)</span><strong>600 / 800 din</strong>
+                </div>
+                <div class="cena-stavka">
+                  <span>Lice (Komplet)</span><strong>700 din</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FINALNO DUGME ZAKAŽI -->
+        <section class="sekcija-zakazivanje">
+          <h3>Želite svoj termin?</h3>
+          <p>Zakažite tretman putem našeg Instagram profila.</p>
+          <a
+            href="https://www.instagram.com/jane_beautybar/"
+            target="_blank"
+            class="btn-insta-zakazi"
+          >
+            Zakaži na Instagramu
+          </a>
+        </section>
+      </div>
+    </main>
+    <!-- Main end -->
+    <!-- Footer start -->
+    <footer>
+      <div class="container footer-container">
+        <div class="footer-box">
+          <h4>LOKACIJA</h4>
+          <p>Vladimira Matijevica 85</p>
+          <p>Sremska Mitrovica, Srbija</p>
+        </div>
+
+        <div class="footer-box">
+          <h4>KONTAKT</h4>
+          <p>Telefon: +381 6X XXX XXXX</p>
+          <p>
+            Instagram:
+            <a href="https://www.instagram.com/jane_beautybar/" target="_blank"
+              >@jane_beautybar</a
+            >
+          </p>
+        </div>
+
+        <div class="footer-box">
+          <h4>RADNO VREME</h4>
+          <p>Pon - Pet: 09:00 - 20:00</p>
+          <p>Subota: 09:00 - 15:00</p>
+          <p>Nedelja: Zatvoreno</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Jane Beauty Bar. Sva prava zadržana.</p>
+      </div>
+    </footer>
+    <!-- Footer end -->
+  </body>
+</html>

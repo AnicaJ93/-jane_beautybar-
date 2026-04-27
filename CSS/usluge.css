@@ -1,0 +1,219 @@
+.usluge-stranica {
+ padding-top: 10rem;
+ padding-bottom: 10rem;
+}
+
+.glavni-naslov-usluge {
+ text-align: center;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 4rem;
+ letter-spacing: 5px;
+ text-transform: uppercase;
+ margin-bottom: 8rem;
+ font-weight: 300;
+}
+
+.usluga-sekcija {
+ margin-bottom: 10rem;
+ margin-top: 8rem;
+}
+
+.usluga-kontejner {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 8rem;
+
+}
+
+/* Cik-cak logika */
+.usluga-sekcija.obrni .usluga-kontejner {
+ flex-direction: row-reverse;
+}
+
+.okrugla-slika {
+ width: 28rem;
+ height: 28rem;
+ border-radius: 50%;
+ border: 1px solid #d4af37;
+ padding: 1rem;
+ background: #fff;
+ flex-shrink: 0;
+}
+
+.okrugla-slika img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ border-radius: 50%;
+}
+.tabela-korekcije {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 10px;
+ font-size: 1.3rem;
+ font-family: 'Montserrat', sans-serif;
+}
+
+.tabela-korekcije th {
+ text-align: left;
+ padding: 10px 5px;
+ color: #888;
+ font-weight: 400;
+ text-transform: uppercase;
+ font-size: 1rem;
+ letter-spacing: 1px;
+ border-bottom: 1px solid #f0f0f0;
+}
+
+.tabela-korekcije td {
+ padding: 8px 5px;
+ border-bottom: 1px solid #f9f9f9;
+ color: #333;
+}
+
+/* Kolone sa cenama neka budu zlatne i boldovane kao na slici */
+.tabela-korekcije td:nth-child(2),
+.tabela-korekcije td:nth-child(3) {
+ color: #d4af37;
+ font-weight: 600;
+ text-align: right;
+}
+
+.tabela-korekcije th:nth-child(2),
+.tabela-korekcije th:nth-child(3) {
+ text-align: right;
+}
+
+.info-sitno {
+ font-size: 1.2rem !important;
+ color: #777 !important;
+ text-align: center;
+ margin-bottom: 5px !important;
+ font-style: italic;
+}
+
+.usluga-info {
+ max-width: 45rem;
+ margin-top: 8rem;
+}
+
+.kategorija-oznaka {
+ font-size: 1rem;
+ letter-spacing: 3px;
+ color: #d4af37;
+}
+
+.usluga-info h2 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 3.2rem;
+ margin: 1rem 0 2rem;
+ font-weight: 400;
+}
+
+.usluga-info p {
+ font-family: 'Playfair Display', serif;
+ font-style: italic;
+ color: #666;
+ margin-bottom: 3rem;
+ line-height: 1.6;
+}
+
+.cena-stavka {
+ display: flex;
+ justify-content: space-between;
+ padding: 1rem 0;
+ border-bottom: 1px solid #eee;
+ font-size: 1.4rem;
+}
+
+.cena-stavka strong {
+ color: #d4af37;
+}
+.detaljno-objasnjenje {
+ margin-top: 25px;
+ padding: 20px;
+ background-color: #fcfcfc;
+ /* Blago svetlija siva pozadina za isticanje */
+ border-left: 2px solid #d4af37;
+ /* Zlatna linija koja prati brend */
+}
+
+.detaljno-objasnjenje p {
+ font-size: 1.3rem !important;
+ line-height: 1.6 !important;
+ color: #555 !important;
+ margin-bottom: 12px !important;
+ font-family: 'Montserrat', sans-serif !important;
+ font-style: normal !important;
+ /* Ovde ne koristimo italic da bi bilo čitljivije */
+}
+
+.detaljno-objasnjenje strong {
+ color: #1a1a1a;
+ font-weight: 600;
+}
+
+.gratis-info {
+ font-family: 'Playfair Display', serif !important;
+ font-style: italic !important;
+ color: #d4af37 !important;
+ /* Zlatna boja za "Gratis" informaciju */
+ font-size: 1.2rem !important;
+ margin-top: 15px !important;
+ display: block;
+}
+
+/* Opciono: Smanjujemo razmak između cena da bi stao opis */
+.cena-stavka {
+ padding: 0.8rem 0 !important;
+}
+
+/* FINALNO DUGME */
+.sekcija-zakazivanje {
+ text-align: center;
+ margin-top: 12rem;
+ padding: 6rem;
+ background-color: #fcfcfc;
+ border: 1px solid #f0f0f0;
+}
+
+.sekcija-zakazivanje h3 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 3rem;
+ margin-bottom: 1rem;
+}
+
+.btn-insta-zakazi {
+ display: inline-block;
+ margin-top: 3rem;
+ padding: 1.5rem 4rem;
+ background-color: #000;
+ color: #fff;
+ text-decoration: none;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ font-size: 1.3rem;
+ transition: 0.3s;
+}
+
+.btn-insta-zakazi:hover {
+ background-color: #d4af37;
+ transform: translateY(-3px);
+}
+
+/* MOBILNA VERZIJA */
+@media (max-width: 768px) {
+
+ .usluga-kontejner,
+ .usluga-sekcija.obrni .usluga-kontejner {
+  flex-direction: column;
+  text-align: center;
+  gap: 4rem;
+ }
+
+ .okrugla-slika {
+  width: 22rem;
+  height: 22rem;
+ }
+}
