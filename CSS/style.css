@@ -423,8 +423,9 @@ header .header .meni ul {
 .quote {
    opacity: 0;
    font-family: 'Playfair Display', serif;
-   font-weight: 400;
+   font-weight: 300;
    font-size: 3rem;
+   font-style: italic;
    color: rgba(255, 255, 255, 0.8);
    animation: iz-magle 2.5s ease forwards 2s;
    /* Kreće nakon spajanja naslova */
