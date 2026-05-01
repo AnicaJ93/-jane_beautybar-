@@ -1,62 +1,88 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. Selektujemo sve potrebne elemente
-  const slike = document.querySelectorAll(".gallery-item");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
-  const btnZatvori = document.querySelector(".close-lightbox");
+  const slike = Array.from(document.querySelectorAll(".gallery-item"));
   const btnNapred = document.querySelector(".next-btn");
   const btnNazad = document.querySelector(".prev-btn");
+  const btnZatvori = document.querySelector(".close-lightbox");
 
   let trenutniIndeks = 0;
 
-  // 2. Funkcija koja menja sliku
-  function osveziSliku(indeks) {
-    if (indeks >= slike.length) indeks = 0;
-    if (indeks < 0) indeks = slike.length - 1;
+  // Funkcija koja menja sliku i osigurava da indeks ostane između 0 i 8
+  function promeniSliku(noviIndeks) {
+    // Matematika za 9 slika (kruženje: 8 + 1 ide na 0, 0 - 1 ide na 8)
+    trenutniIndeks = (noviIndeks + slike.length) % slike.length;
 
-    trenutniIndeks = indeks;
     const novaPutanja = slike[trenutniIndeks].getAttribute("href");
     lightboxImg.src = novaPutanja;
+
+    console.log("Prikazujem sliku broj:", trenutniIndeks + 1); // Pomoć za debagovanje
   }
 
-  // 3. Otvaranje slike na klik
-  slike.forEach((slika, indeks) => {
+  // Otvaranje lightbox-a na klik
+  slike.forEach((slika, i) => {
     slika.addEventListener("click", function (e) {
       e.preventDefault();
-      trenutniIndeks = indeks;
-      osveziSliku(trenutniIndeks);
+      trenutniIndeks = i; // Postavljamo tačan indeks kliknute slike
+      promeniSliku(trenutniIndeks);
       lightbox.style.display = "flex";
     });
   });
 
-  // 4. Komande za dugmad
+  // Navigacija - Koristimo 'onclick' da bismo pregazili sve stare event-e
   btnNapred.onclick = function (e) {
+    e.preventDefault();
     e.stopPropagation();
-    osveziSliku(trenutniIndeks + 1);
+    promeniSliku(trenutniIndeks + 1);
   };
 
   btnNazad.onclick = function (e) {
+    e.preventDefault();
     e.stopPropagation();
-    osveziSliku(trenutniIndeks - 1);
+    promeniSliku(trenutniIndeks - 1);
   };
 
-  btnZatvori.onclick = function () {
+  // Zatvaranje na X ili na klik sa strane
+  const ugasi = () => {
     lightbox.style.display = "none";
   };
-
-  // 5. Zatvaranje na klik sa strane
-  lightbox.onclick = function (e) {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
+  btnZatvori.onclick = ugasi;
+  lightbox.onclick = (e) => {
+    if (e.target === lightbox) ugasi();
   };
 
-  // 6. Bonus: Komande na tastaturi
+  // Tastatura
   document.onkeydown = function (e) {
     if (lightbox.style.display === "flex") {
-      if (e.keyCode === 39) osveziSliku(trenutniIndeks + 1); // Desno
-      if (e.keyCode === 37) osveziSliku(trenutniIndeks - 1); // Levo
-      if (e.keyCode === 27) lightbox.style.display = "none"; // Esc
+      if (e.key === "ArrowRight") promeniSliku(trenutniIndeks + 1);
+      if (e.key === "ArrowLeft") promeniSliku(trenutniIndeks - 1);
+      if (e.key === "Escape") ugasi();
     }
   };
 });
+  // --- DODATAK ZA SWIPE (PREVLAČENJE PRSTOM) ---
+  let startX = 0;
+  let endX = 0;
+
+  lightbox.addEventListener("touchstart", function (e) {
+    startX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  lightbox.addEventListener("touchend", function (e) {
+    endX = e.changedTouches[0].screenX;
+    obradiSwipe();
+  }, { passive: true });
+
+  function obradiSwipe() {
+    const pragOsetljivosti = 50; // Koliko piksela prst mora da se pomeri
+    
+    if (endX < startX - pragOsetljivosti) {
+      // Prevlačenje ulevo -> sledeća slika
+      promeniSliku(trenutniIndeks + 1);
+    }
+    
+    if (endX > startX + pragOsetljivosti) {
+      // Prevlačenje udesno -> prethodna slika
+      promeniSliku(trenutniIndeks - 1);
+    }
+  }
