@@ -1,0 +1,171 @@
+/* --- EDUKACIJE SEKCIJA (POVEĆANI FONTOVI) --- */
+.edu-section {
+ padding: 100px 5%;
+ background-color: #fff;
+ text-align: center;
+}
+
+.edu-section .section-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 4rem;
+ /* Povećan naslov stranice */
+ font-weight: 300;
+ text-transform: uppercase;
+ letter-spacing: 3px;
+ margin-bottom: 15px;
+}
+
+.edu-section .section-subtitle {
+ font-family: 'Cormorant Garamond', serif;
+ /* Elegantni font sa slike */
+ font-size: 2.5rem;
+ color: #333;
+ font-style: italic;
+ line-height: 1.8;
+ max-width: 800px;
+ margin: 0 auto 60px;
+ letter-spacing: 0.5px;
+ font-weight: 300;
+}
+
+/* Mreža kartica */
+.edu-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 40px;
+ max-width: 1300px;
+ margin: 0 auto;
+}
+
+/* Stil kartice */
+.edu-card {
+ background-color: #fdf0f3;
+ /* Tvoja roze boja */
+ padding: 60px 45px;
+ /* Više prostora unutar kartice */
+ border: 1px solid #fae1e6;
+ border-left: 10px solid #c9a050;
+ /* Još moćnija zlatna traka */
+ text-align: left;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ transition: all 0.4s ease;
+}
+
+.edu-card:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 15px 40px rgba(250, 225, 230, 0.8);
+}
+
+/* Naslovi edukacija */
+.edu-card h3 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 2.8rem;
+ /* Baš krupan i elegantan naslov */
+ color: #1a1a1a;
+ margin-bottom: 20px;
+ line-height: 1.1;
+}
+
+/* Opis edukacije */
+.edu-card p {
+ font-family: 'Montserrat', sans-serif;
+ font-size: 1.2rem;
+ /* Povećan tekst opisa */
+ color: #444;
+ line-height: 1.6;
+ margin-bottom: 30px;
+}
+
+/* Lista sa kvačicama */
+.edu-list {
+ list-style: none;
+ padding: 0;
+ margin-bottom: 40px;
+}
+
+.edu-list li {
+ font-family: 'Montserrat', sans-serif;
+ font-size: 1.1rem;
+ /* Krupnije stavke liste */
+ display: flex;
+ align-items: center;
+ margin-bottom: 15px;
+ color: #333;
+}
+
+.edu-list li span {
+ color: #c9a050;
+ font-size: 1.4rem;
+ margin-right: 15px;
+ font-weight: bold;
+}
+
+/* Donji deo: Cena i Dugme */
+.edu-footer {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-top: 1px solid rgba(201, 160, 80, 0.3);
+ padding-top: 30px;
+}
+
+.edu-price {
+ font-family: 'Montserrat', sans-serif;
+ font-size: 1.8rem;
+ /* Jasna i krupna cena */
+ font-weight: 600;
+ color: #1a1a1a;
+}
+
+.price-value {
+ color: #c9a050;
+}
+
+/* Novo, modernije dugme */
+.edu-btn {
+ font-family: 'Montserrat', sans-serif;
+ display: inline-block;
+ padding: 15px 35px;
+ background-color: #c9a050;
+ /* Puno zlatno dugme da se odmah vidi */
+ color: #fff;
+ text-decoration: none;
+ text-transform: uppercase;
+ font-size: 1rem;
+ font-weight: 600;
+ letter-spacing: 1px;
+ transition: all 0.3s ease;
+ border: none;
+}
+
+.edu-btn:hover {
+ background-color: #1a1a1a;
+ /* Menja u crnu na hover za luksuzan efekat */
+ transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+ .edu-grid {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+ }
+
+ .edu-section .section-title {
+  font-size: 3rem;
+ }
+}
+
+@media (max-width: 768px) {
+ .edu-card {
+  padding: 40px 25px;
+ }
+
+ .edu-footer {
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+ }
+}
