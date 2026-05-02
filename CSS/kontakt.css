@@ -1,0 +1,127 @@
+/* --- KONTAKT SEKCIJA --- */
+.contact-flex {
+ display: flex;
+ align-items: center;
+ gap: 60px;
+ padding: 80px 0;
+ margin-top: 9rem;
+}
+
+.contact-image {
+ flex: 1;
+ position: relative;
+}
+
+.contact-image img {
+ width: 100%;
+ height: 439px;
+ object-fit: cover;
+ border-radius: 2px;
+ display: block;
+ margin-top: 3.4rem;
+}
+
+.contact-image figcaption {
+ font-family: 'Cormorant Garamond', serif;
+ font-style: italic;
+ font-size: 1.6rem;
+ color: #c9a050;
+ margin-top: 1.5rem;
+ text-align: center;
+}
+
+/* Desna strana sa podacima */
+.contact-data-wrapper {
+ flex: 1;
+ background-color: #fdf0f3;
+ /* Tvoja roze boja */
+ padding: 50px;
+ border-left: 5px solid #c9a050;
+ /* Zlatna traka */
+ text-align: left;
+}
+
+.info-block {
+ margin-bottom: 30px;
+}
+
+.info-block h3 {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 2.2rem;
+ color: #1a1a1a;
+ margin-bottom: 0.5rem;
+}
+
+.info-block p {
+ font-family: 'Cormorant Garamond', serif;
+ font-style: italic;
+ font-size: 1.6rem;
+ color: #555;
+ line-height: 1.5rem;
+}
+
+.booking-btn {
+ display: inline-block;
+ margin-top: 20px;
+ padding:1.5rem 3.5rem;
+ background-color: #c9a050;
+ color: #fff;
+ text-transform: uppercase;
+ font-family: 'Montserrat', sans-serif;
+ font-weight: 600;
+ letter-spacing: 0.2rem;
+ text-decoration: none;
+ transition: 0.3s;
+}
+
+.booking-btn:hover {
+ background-color: #1a1a1a;
+ transform: translateY(-3px);
+}
+
+/* --- TABLET I MOBILNA OPTIMIZACIJA --- */
+@media (max-width: 768px) {
+ .contact-flex {
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding:4rem 2rem;
+ }
+
+ .contact-image {
+  width: 100%;
+  max-width: 700px;
+ }
+
+ .contact-image img {
+  height: 350px;
+  object-fit: cover;
+ }
+
+ .contact-data-wrapper {
+  width: 100%;
+  max-width: 700px;
+  padding: 4rem;
+  border-left: none;
+  border-top: 0.5rem solid #c9a050;
+  text-align: center;
+ }
+
+ .info-block {
+  margin-bottom: 25px;
+ }
+
+ .booking-btn {
+  margin: 2rem auto 0;
+  
+ }
+}
+@media (min-width: 1024px) {
+ .contact-image {
+  margin-left: 2rem;
+ }
+  .contact-data-wrapper {
+   margin-right: 2rem;
+   padding: 5rem 4rem;
+  }
+}

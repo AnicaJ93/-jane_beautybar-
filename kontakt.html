@@ -12,11 +12,13 @@
       name="keywords"
       content="Jane Beauty Bar, Sremska Mitrovica, svilene trepavice, nadogradnja trepavica, lash lift, korejski lash lift, brow lift, laminacija obrva, depilacija, edukacija za trepavice, obuka za obrve, salon lepote Sremska Mitrovica"
     />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./CSS/normalize.css" />
     <link rel="stylesheet" href="./CSS/fonts.css" />
     <link rel="stylesheet" href="./CSS/style.css" />
-    <link rel="stylesheet" href="./CSS/galerija.css" />
-    <title>Document</title>
+<link rel="stylesheet" href="./CSS/kontakt.css">
+    <title>Kontakt</title>
   </head>
   <body>
     <header>
@@ -48,74 +50,46 @@
               </li>
               <li><a href="galerija.html">GALERIJA</a></li>
               <li><a href="edukacije.html">EDUKACIJE</a></li>
-              <li><a href="kontakt.html">KONTAKT</a></li>
+              <li><a href="#">KONTAKT</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <section id="galerija" class="gallery-wrapper">
-      <div class="container">
-        <h2 class="section-title">Moji Radovi</h2>
-        <p class="section-subtitle">
-          Pogledajte rezultate tretmana u Jane Beauty Baru
-        </p>
+   <main>
+  <section class="contact" id="kontakt">
+    <div class="container contact-flex">
+      <!-- LEVA STRANA: Slika -->
+      <figure class="contact-image">
+        <img src="./image/kontakt.jpg" alt="Jane Beauty Bar Salon" />
+        <figcaption>jane_beautybar</figcaption>
+      </figure>
 
-        <div class="gallery-grid">
-          <!-- Ponavljaj ovaj blok za svaku sliku -->
-          <a href="./image/usluge/usluga-2.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-2.jpg" alt="Opis rada" />
-            <div class="overlay">
-             <h3>Brow lift</h3>
-             <span>Pogledaj</span>
-            </div>
-          </a>
-          <!-- Kraj bloka za sliku -->
-          <a href="./image/usluge/usluga-1.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-1.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
-          <a href="./image/usluge/usluga-2.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-2.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
-          <a href="./image/usluge/usluga-1.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-1.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
-          <a href="./image/usluge/usluga-2.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-2.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
-          <a href="./image/usluge/usluga-1.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-1.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
-           <a href="./image/usluge/usluga-2.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-2.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
-           <a href="./image/usluge/usluga-1.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-1.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
-           <a href="./image/usluge/usluga-2.jpg" class="gallery-item">
-            <img src="./image/usluge/usluga-2.jpg" alt="Opis rada" />
-            <div class="overlay"><span>Pogledaj</span></div>
-          </a>
+      <!-- DESNA STRANA: Podaci -->
+      <div class="contact-data-wrapper">
+        <div class="info-block">
+          <h3>Adresa</h3>
+          <p>Vladimira Matijevića 85<br />Sremska Mitrovica, Srbija</p>
         </div>
-      </div>
 
-      <!-- Lightbox kontejner -->
-      <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <span class="prev-btn">&#10094;</span>
-        <!-- Strelica levo -->
-        <img class="lightbox-content" id="lightbox-img" />
-        <span class="next-btn">&#10095;</span>
-        <!-- Strelica desno -->
+        <div class="info-block">
+          <h3>Radno Vreme</h3>
+          <p>Pon - Pet: 09:00 - 20:00<br>Subota: 09:00 - 15:00<br>Nedelja: Zatvoreno</p>
+        </div>
+
+        <div class="info-block">
+          <h3>Kontakt telefon</h3>
+          <p>060 123 4567</p>
+        </div>
+
+        <!-- Dugme za zakazivanje -->
+        <a href="https://www.instagram.com/jane_beautybar/" class="booking-btn">Zakaži termin</a>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
+
+
     <footer>
       <div class="container footer-container">
         <div class="footer-box">
@@ -148,6 +122,5 @@
     </footer>
 
     <script src="./JS/menu.js"></script>
-    <script src="./JS/galerija.js"></script>
   </body>
 </html>
