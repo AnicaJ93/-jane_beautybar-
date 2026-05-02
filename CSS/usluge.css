@@ -54,6 +54,9 @@
  font-size: 1.3rem;
  font-family: 'Montserrat', sans-serif;
 }
+.cene-podgrupa{
+ padding-top: 1rem;
+}
 
 .tabela-korekcije th {
  text-align: left;

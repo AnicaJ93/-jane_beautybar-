@@ -44,8 +44,7 @@
  padding: 60px 45px;
  /* Više prostora unutar kartice */
  border: 1px solid #fae1e6;
- border-left: 10px solid #c9a050;
- /* Još moćnija zlatna traka */
+ border-left: 0.5rem solid #c9a050;
  text-align: left;
  display: flex;
  flex-direction: column;

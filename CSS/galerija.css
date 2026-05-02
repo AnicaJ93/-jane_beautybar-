@@ -21,11 +21,12 @@
 }
 
 .section-subtitle {
- font-size: 1.6rem;
- color: #c9a050;
- /* Zlatna boja brenda */
+   font-family: 'Cormorant Garamond', serif;
+ font-size: 2.5rem;
+ color: #333;;
  margin-bottom: 40px;
  font-style: italic;
+ font-weight: 300;
 }
 
 /* =========================================
